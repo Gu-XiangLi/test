@@ -7,11 +7,33 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+//import axios  from 'axios'  //导入插件
+import jsonp  from 'jsonp'
 
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  data(){
+    return{
+      age: 30,
+      sex: '男'
+    }
+  },
+  mounted(){
+    // let url  = 'https://www.easy-mock.com/mock/5b012c1fe6e1035843aff/table/list';
+    // axios.get(url).then((result)=>{
+    //   console.log(result);
+    // })
+    let url1 = '/api/common/adver-getadver';
+    let url2 = '/api/activity/servicetime';
+    jsonp(url2, (error, result)=>{ 
+      console.log(result);
+    })
+    jsonp(url1, (error, result)=>{ 
+      console.log(result);
+    })
   }
 }
 </script>
